@@ -8,7 +8,6 @@ const Meals = () => {
     const request = await fetch("http://localhost:3000/meals");
     const data = await request.json();
 
-    console.log(data);
     setMealData(data);
   }
 
@@ -16,13 +15,13 @@ const Meals = () => {
     getMeals();
   }, []);
 
-  return <ul id="meals">
-    {
-        mealData.map((meal) => (
-           <MealItem key={meal.id} meal={meal}/>
-        ))
-    }
-  </ul>;
+  return (
+    <ul id="meals">
+      {mealData.map((meal) => (
+        <MealItem key={meal.id} meal={meal} />
+      ))}
+    </ul>
+  );
 };
 
 export default Meals;
